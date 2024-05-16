@@ -1,4 +1,5 @@
 import { reportValue } from "@vercel/flags";
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   reportValue("summer-sale-false", false);
