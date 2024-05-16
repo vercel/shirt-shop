@@ -11,6 +11,10 @@ export async function GET() {
   reportValue("summer-sale-numeric", 5);
   reportValue("summer-sale-null", null);
   reportValue("summer-sale-undefined", undefined);
+  reportValue("summer-sale-double", "a");
+  reportValue("summer-sale-double", "a");
+  reportValue("summer-sale-multi", "a");
+  reportValue("summer-sale-multi", "b");
   reportValue("summer-sale-long", "a".repeat(512));
   return Response.json({ text: "hello" });
 }
