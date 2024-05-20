@@ -1,29 +1,22 @@
-import { Header } from '@/components/header';
-import { Reviews } from '@/components/reviews';
-import { RelatedProducts } from '@/components/related-products';
-import { ProductDetailReviews } from '@/components/product-detail-reviews';
-import { ImageGallery } from '@/components/image-gallery';
-import { ColorPicker } from '@/components/color-picker';
-import { SizePicker } from '@/components/size-picker';
-import { Policies } from '@/components/policies';
-import { ProductDetails } from '@/components/product-details';
-import { Footer } from '@/components/footer';
-import { Materials } from '@/components/materials';
-import { ProductHeading } from '@/components/product-heading';
-import { Promo } from '@/components/promo';
-import { FlagValues } from '@vercel/flags/react';
+import { Header } from "@/components/header";
+import { Reviews } from "@/components/reviews";
+import { RelatedProducts } from "@/components/related-products";
+import { ProductDetailReviews } from "@/components/product-detail-reviews";
+import { ImageGallery } from "@/components/image-gallery";
+import { ColorPicker } from "@/components/color-picker";
+import { SizePicker } from "@/components/size-picker";
+import { Policies } from "@/components/policies";
+import { ProductDetails } from "@/components/product-details";
+import { Footer } from "@/components/footer";
+import { Materials } from "@/components/materials";
+import { ProductHeading } from "@/components/product-heading";
+import { Promo } from "@/components/promo";
 import {
+  precomputeFlags,
   showFreeDeliveryBannerFlag,
   showSummerBannerFlag,
-} from '@/middleware-flags';
-import { TopBanner } from '@/components/top-banner';
-import * as middlewareDefinitions from '@/middleware-flags';
-import { unstable_generatePermutations } from '@vercel/flags/next/middleware';
-
-export async function generateStaticParams() {
-  const codes = await unstable_generatePermutations(middlewareDefinitions);
-  return codes.map((code) => ({ code }));
-}
+} from "@/flags";
+import { TopBanner } from "@/components/top-banner";
 
 export default async function Example({
   params,
@@ -32,16 +25,21 @@ export default async function Example({
     code: string;
   };
 }) {
-  const showSummerBanner = await showSummerBannerFlag(params.code);
-  const showFreeDeliveryBanner = await showFreeDeliveryBannerFlag(params.code);
+  // passing params.code and precomputedFlags reads the precomputed result
+  // if you call showSummerBannerFlag() without any arguments it would decide
+  // within this page instead of reading the precomputed result
+  const showSummerBanner = await showSummerBannerFlag(
+    params.code,
+    precomputeFlags
+  );
+
+  const showFreeDeliveryBanner = await showFreeDeliveryBannerFlag(
+    params.code,
+    precomputeFlags
+  );
+
   return (
     <div className="bg-white">
-      <FlagValues
-        values={{
-          [showSummerBannerFlag.key]: showSummerBanner,
-          [showFreeDeliveryBannerFlag.key]: showFreeDeliveryBanner,
-        }}
-      />
       {showFreeDeliveryBanner ? <TopBanner /> : null}
       <Header />
       {showSummerBanner ? <Promo /> : null}
