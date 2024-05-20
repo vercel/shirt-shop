@@ -1,9 +1,9 @@
 import { type NextRequest, NextResponse } from "next/server";
 import {
-  unstable_decide,
-  unstable_serialize,
-} from "@vercel/flags/next/middleware";
-import * as flags from "@/middleware-flags";
+  unstable_precompute as precompute,
+  unstable_serialize as serialize,
+} from "@vercel/flags/next";
+import { precomputeFlags } from "@/flags";
 
 export const config = { matcher: ["/"] };
 
@@ -12,8 +12,8 @@ export async function middleware(request: NextRequest) {
     /* pass a LaunchDarkly client or whatever your flag will need */
   };
 
-  const flagSet = await unstable_decide(request, flags, context);
-  const code = await unstable_serialize(flagSet, flags);
+  const values = await precompute(precomputeFlags, context);
+  const code = await serialize(precomputeFlags, values);
 
   // rewrites the request to the variant for this flag combination
   const nextUrl = new URL(
