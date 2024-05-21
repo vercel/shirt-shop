@@ -14,6 +14,7 @@ import { Promo } from "@/components/promo";
 import {
   precomputeFlags,
   showFreeDeliveryBannerFlag,
+  showProductDetailReviewsFlag,
   showSummerBannerFlag,
 } from "@/flags";
 import { TopBanner } from "@/components/top-banner";
@@ -21,9 +22,7 @@ import { TopBanner } from "@/components/top-banner";
 export default async function Example({
   params,
 }: {
-  params: {
-    code: string;
-  };
+  params: { code: string };
 }) {
   // passing params.code and precomputedFlags reads the precomputed result
   // if you call showSummerBannerFlag() without any arguments it would decide
@@ -38,6 +37,9 @@ export default async function Example({
     precomputeFlags
   );
 
+  // This flag is evaluated right here, it is not accessing any precomputed result
+  const showProductDetailReviews = await showProductDetailReviewsFlag();
+
   return (
     <div className="bg-white">
       {showFreeDeliveryBanner ? <TopBanner /> : null}
@@ -48,7 +50,7 @@ export default async function Example({
         <div className="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8">
           <div className="lg:col-span-5 lg:col-start-8">
             <ProductHeading />
-            <ProductDetailReviews />
+            {showProductDetailReviews ? <ProductDetailReviews /> : null}
           </div>
 
           <ImageGallery />

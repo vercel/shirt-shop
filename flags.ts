@@ -3,6 +3,8 @@ import { unstable_flag as flag } from "@vercel/flags/next";
 export const showSummerBannerFlag = flag<boolean>({
   key: "summer-sale",
   async decide() {
+    // You can do async things in here like reading edge config or querying
+    // your feature flag provider.
     return false;
   },
   origin:
@@ -17,7 +19,7 @@ export const showSummerBannerFlag = flag<boolean>({
 
 export const showFreeDeliveryBannerFlag = flag<boolean>({
   key: "free-delivery",
-  async decide() {
+  decide() {
     return true;
   },
   origin:
@@ -28,6 +30,12 @@ export const showFreeDeliveryBannerFlag = flag<boolean>({
     { value: false, label: "Hide" },
     { value: true, label: "Show" },
   ],
+});
+
+// This flag is not part of "precomputeFlags", so it will not get decided in Middleware
+export const showProductDetailReviewsFlag = flag({
+  key: "product-detail-reviews",
+  decide: () => true,
 });
 
 export const precomputeFlags = [
