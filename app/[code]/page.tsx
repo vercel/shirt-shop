@@ -24,6 +24,9 @@ export default async function Example({
 }: {
   params: { code: string };
 }) {
+  // This flag is evaluated right here, it is not accessing any precomputed result
+  const showProductDetailReviews = await showProductDetailReviewsFlag();
+
   // passing params.code and precomputedFlags reads the precomputed result
   // if you call showSummerBannerFlag() without any arguments it would decide
   // within this page instead of reading the precomputed result
@@ -36,9 +39,6 @@ export default async function Example({
     params.code,
     precomputeFlags
   );
-
-  // This flag is evaluated right here, it is not accessing any precomputed result
-  const showProductDetailReviews = await showProductDetailReviewsFlag();
 
   return (
     <div className="bg-white">
