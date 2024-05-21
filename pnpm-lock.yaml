@@ -24,8 +24,8 @@ dependencies:
     specifier: https://vercel-analytics-package-ayb1ll9cs.vercel.online/index.tgz
     version: '@vercel-analytics-package-ayb1ll9cs.vercel.online/index.tgz(next@14.2.3)(react@18.3.1)'
   '@vercel/flags':
-    specifier: 2.4.1-e1c650d8-20240520192820
-    version: 2.4.1-e1c650d8-20240520192820(next@14.2.3)(react-dom@18.3.1)(react@18.3.1)
+    specifier: 2.4.1-cf49fb7a-20240521002143
+    version: 2.4.1-cf49fb7a-20240521002143(next@14.2.3)(react-dom@18.3.1)(react@18.3.1)
   '@vercel/toolbar':
     specifier: 0.1.14
     version: 0.1.14(next@14.2.3)(react@18.3.1)
@@ -423,8 +423,8 @@ packages:
       csstype: 3.1.3
     dev: true
 
-  /@vercel/flags@2.4.1-e1c650d8-20240520192820(next@14.2.3)(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-AbqaJm9iuXAdPq+9WHAJIc+vL07EwMNt8hEGPXP5nsjfN7DlF+Uj1Dca1Pbr5hd57oWOA22uGrSZikA3JlHTWQ==}
+  /@vercel/flags@2.4.1-cf49fb7a-20240521002143(next@14.2.3)(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-SFuZssVKRu32gusw8w8NEleLzyOdRbKoC4igfb99K6TnHQPmDupuWHyfjXjoxzDjxeDKG4uf9wQc9rIsevemjg==}
     peerDependencies:
       next: '*'
       react: '*'

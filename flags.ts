@@ -2,9 +2,7 @@ import { unstable_flag as flag } from "@vercel/flags/next";
 
 export const showSummerBannerFlag = flag<boolean>({
   key: "summer-sale",
-  async decide() {
-    return false;
-  },
+  decide: () => false,
   origin:
     "https://app.launchdarkly.com/toggle-runner-demo/production/features/summer-sale/targeting",
   description: "Show Summer Holiday Sale Banner, 20% off",

@@ -15,7 +15,7 @@
     "@tailwindcss/forms": "0.5.7",
     "@tailwindcss/typography": "0.5.10",
     "@vercel/analytics": "https://vercel-analytics-package-ayb1ll9cs.vercel.online/index.tgz",
-    "@vercel/flags": "2.4.1-e1c650d8-20240520192820",
+    "@vercel/flags": "2.4.1-cf49fb7a-20240521002143",
     "@vercel/toolbar": "0.1.14",
     "clsx": "2.0.0",
     "next": "14.2.3",

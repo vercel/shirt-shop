@@ -1,6 +1,9 @@
 import { precomputeFlags } from "@/flags";
 import { type FlagValuesType, encrypt } from "@vercel/flags";
-import { unstable_deserialize as deserialize } from "@vercel/flags/next";
+import {
+  unstable_deserialize as deserialize,
+  unstable_generatePermutations as generatePermutations,
+} from "@vercel/flags/next";
 import { FlagValues } from "@vercel/flags/react";
 import { Suspense } from "react";
 
@@ -9,16 +12,17 @@ async function ConfidentialFlagValues({ values }: { values: FlagValuesType }) {
   return <FlagValues values={encryptedFlagValues} />;
 }
 
+export const dynamicParams = true;
 export async function generateStaticParams() {
   // Returning an empty array here is important as it enables ISR, so
   // the various combinations stay cached after they first time they were rendered.
   //
+  // return [];
+
   // Instead of returning an empty array you could also call unstable_generatePermutations
   // to generate the permutations upfront.
-  //
-  // const codes = await unstable_generatePermutations(precomputeFlags);
-  // return codes.map((code) => ({ code }));
-  return [];
+  const codes = await generatePermutations(precomputeFlags);
+  return codes.map((code) => ({ code }));
 }
 
 export default async function Layout({
