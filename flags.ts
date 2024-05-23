@@ -38,12 +38,6 @@ export const showFreeDeliveryBannerFlag = flag<boolean>({
   ],
 });
 
-// This flag is not part of "precomputeFlags", so it will not get decided in Middleware
-export const showProductDetailReviewsFlag = flag({
-  key: "product-detail-reviews",
-  decide: () => true,
-});
-
 export const precomputeFlags = [
   showSummerBannerFlag,
   showFreeDeliveryBannerFlag,
