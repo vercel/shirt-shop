@@ -1,16 +1,15 @@
-'use client';
+"use client";
 
-import { Analytics } from '@vercel/analytics/next';
-import { unstable_getFlagsProps } from '@vercel/flags/analytics';
+import { Analytics } from "@vercel/analytics/next";
+import { FlagsReporter } from "@vercel/flags/react";
 
 export function VercelAnalytics() {
   return (
-    <Analytics
-      setDefaultProps={() =>
-        unstable_getFlagsProps({
-          initialKeys: ['summer-sale', 'free-delivery'],
-        })
-      }
-    />
+    <>
+      <Analytics />
+      <FlagsReporter
+        keys={["summer-sale", "free-delivery", "product-detail-reviews"]}
+      />
+    </>
   );
 }
