@@ -2,13 +2,18 @@
 
 This example shows how to use `@vercel/flags` for Next.js applications.
 
-Provide a `FLAGS_SECRET` environment variable. You can generate one with `node -e "console.log(crypto.randomBytes(32).toString('base64url'))"`.
+This application requires a `FLAGS_SECRET` environment variable.
+
+You can generate one with this command
+
+```sh
+node -e "console.log(crypto.randomBytes(32).toString('base64url'))"
+```
 
 When running locally, you will need to run `vercel link` to link one of your Vercel projects. The environment variable mentioned above need to be defined on the linked project in the Vercel dashboard. Run Having them in local `.env` files is not enough.
 
-## Demo
-
-https://shirt-shop.labs.vercel.dev/
+- [Documentation](https://vercel.com/docs/workflow-collaboration/feature-flags/flags-pattern-nextjs)
+- [Live Demo](https://shirt-shop.labs.vercel.dev/)
 
 ## How to Use
 
