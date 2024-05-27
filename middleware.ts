@@ -12,8 +12,7 @@ export async function middleware(request: NextRequest) {
     /* pass a LaunchDarkly client or whatever your flag will need */
   };
 
-  const values = await precompute(precomputeFlags, context);
-  const code = await serialize(precomputeFlags, values);
+  const code = await precompute(precomputeFlags, context);
 
   // rewrites the request to the variant for this flag combination
   const nextUrl = new URL(
