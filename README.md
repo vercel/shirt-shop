@@ -1,4 +1,6 @@
-# `@vercel/flags/next` example
+# Shirt Shop
+
+## A `@vercel/flags/next` example
 
 This example shows how to use `@vercel/flags` for Next.js applications.
 
