@@ -42,3 +42,10 @@ pnpm dev
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=shirt-shop) ([Documentation](https://nextjs.org/docs/deployment)).
+
+## Acknowledgements & Credits
+
+Thanks to following for a delightful demo:
+
+* [Tailwind UI ecommerce product page example](https://tailwindui.com/components/ecommerce/page-examples/product-pages)
+* Images provided by [Ugmonk](https://ugmonk.com/)
