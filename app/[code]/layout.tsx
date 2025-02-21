@@ -1,10 +1,7 @@
 import { precomputeFlags } from "@/flags";
-import { type FlagValuesType, encrypt } from "@vercel/flags";
-import {
-  unstable_deserialize as deserialize,
-  unstable_generatePermutations as generatePermutations,
-} from "@vercel/flags/next";
-import { FlagValues } from "@vercel/flags/react";
+import { type FlagValuesType, encrypt } from "flags";
+import { deserialize } from "flags/next";
+import { FlagValues } from "flags/react";
 import { Suspense } from "react";
 
 async function ConfidentialFlagValues({ values }: { values: FlagValuesType }) {
@@ -18,7 +15,7 @@ export async function generateStaticParams() {
   //
   return [];
 
-  // Instead of returning an empty array you could also call unstable_generatePermutations
+  // Instead of returning an empty array you could also call generatePermutations
   // to generate the permutations upfront.
   // const codes = await generatePermutations(precomputeFlags);
   // return codes.map((code) => ({ code }));
