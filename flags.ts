@@ -1,16 +1,10 @@
-import { unstable_flag as flag } from "flags/next";
+import { flag } from "flags/next";
 
 export const showSummerBannerFlag = flag<boolean>({
   key: "summer-sale",
   async decide() {
     // You can do async things in here like reading edge config or querying
     // your feature flag provider.
-    //
-    // You can access data passed in by middleware through unstable_getPrecomputationContext
-    // const context = unstable_getPrecomputationContext()
-    //
-    // This is great for creating a single instance of your flag provider
-    // and then passing the client down from middleware
     return false;
   },
   origin:

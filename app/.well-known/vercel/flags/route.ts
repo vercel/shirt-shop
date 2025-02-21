@@ -1,5 +1,5 @@
 import { type ApiData, verifyAccess } from "flags";
-import { unstable_getProviderData as getProviderData } from "flags/next";
+import { getProviderData } from "flags/next";
 import { NextResponse, type NextRequest } from "next/server";
 import * as flags from "../../../../flags";
 
