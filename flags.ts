@@ -1,4 +1,4 @@
-import { unstable_flag as flag } from "@vercel/flags/next";
+import { unstable_flag as flag } from "flags/next";
 
 export const showSummerBannerFlag = flag<boolean>({
   key: "summer-sale",

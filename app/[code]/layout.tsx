@@ -1,10 +1,10 @@
 import { precomputeFlags } from "@/flags";
-import { type FlagValuesType, encrypt } from "@vercel/flags";
+import { type FlagValuesType, encrypt } from "flags";
 import {
   unstable_deserialize as deserialize,
   unstable_generatePermutations as generatePermutations,
-} from "@vercel/flags/next";
-import { FlagValues } from "@vercel/flags/react";
+} from "flags/next";
+import { FlagValues } from "flags/react";
 import { Suspense } from "react";
 
 async function ConfidentialFlagValues({ values }: { values: FlagValuesType }) {

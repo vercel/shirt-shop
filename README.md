@@ -1,8 +1,8 @@
 # Shirt Shop
 
-## A `@vercel/flags/next` example
+## A `flags/next` example
 
-This example shows how to use `@vercel/flags` for Next.js applications.
+This example shows how to use the [Flags SDK](https://flags-sdk.dev) for Next.js applications.
 
 This application requires a `FLAGS_SECRET` environment variable.
 

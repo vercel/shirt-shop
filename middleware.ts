@@ -2,7 +2,7 @@ import { type NextRequest, NextResponse } from "next/server";
 import {
   unstable_precompute as precompute,
   unstable_serialize as serialize,
-} from "@vercel/flags/next";
+} from "flags/next";
 import { precomputeFlags } from "@/flags";
 
 export const config = { matcher: ["/"] };

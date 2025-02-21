@@ -6,8 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Shirt Shop",
-  description:
-    "An example repository showing how to use @vercel/flags for Next.js",
+  description: "An example repository showing how to use Flags SDK in Next.js",
 };
 
 export default function RootLayout({
